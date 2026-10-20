@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Manager Export CSV button downloads the deterministic filtered CSV file in Chrome.</description>
+   <name>TC_Csv_ExportButtonDownload</name>
+   <tag>csv,export,ui,chrome,p0</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>4c138fd1-647f-46a0-a208-681236557cb1</testCaseGuid>
+</TestCaseEntity>

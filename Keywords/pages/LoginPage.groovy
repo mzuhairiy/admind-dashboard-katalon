@@ -11,6 +11,7 @@ class LoginPage extends BasePage {
 	private static final TestObject PASSWORD = ObjectRepository.findTestObject('Object Repository/Authentication/SignIn_Password')
 	private static final TestObject SUBMIT = ObjectRepository.findTestObject('Object Repository/Authentication/SignIn_Submit')
 	private static final TestObject ERROR = ObjectRepository.findTestObject('Object Repository/Authentication/SignIn_Error')
+	private static final TestObject DASHBOARD = ObjectRepository.findTestObject('Object Repository/Shared/Dashboard_Page')
 
 	LoginPage open(String callbackPath = null) {
 		openPath(callbackPath ? "/sign-in?callbackUrl=${URLEncoder.encode(callbackPath, 'UTF-8')}" : '/sign-in')
@@ -27,10 +28,14 @@ class LoginPage extends BasePage {
 
 	void signInAsViewer() {
 		signIn(GlobalVariable.viewerEmail as String, GlobalVariable.viewerPassword as String)
+		waitFor(DASHBOARD, 'the dashboard after viewer sign-in')
+		assert WebUI.verifyElementVisible(DASHBOARD) : 'The dashboard must be visible after viewer sign-in.'
 	}
 
 	void signInAsManager() {
 		signIn(GlobalVariable.managerEmail as String, GlobalVariable.managerPassword as String)
+		waitFor(DASHBOARD, 'the dashboard after manager sign-in')
+		assert WebUI.verifyElementVisible(DASHBOARD) : 'The dashboard must be visible after manager sign-in.'
 	}
 
 	String errorMessage() {

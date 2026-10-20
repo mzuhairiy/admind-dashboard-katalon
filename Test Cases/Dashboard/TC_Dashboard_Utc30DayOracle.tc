@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Dashboard UTC 30-day KPIs and chart totals match the deterministic seed oracle.</description>
+   <name>TC_Dashboard_Utc30DayOracle</name>
+   <tag>dashboard,data,p0</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>eab3fdd3-7a04-4cb7-9f6b-8702c434e98d</testCaseGuid>
+</TestCaseEntity>

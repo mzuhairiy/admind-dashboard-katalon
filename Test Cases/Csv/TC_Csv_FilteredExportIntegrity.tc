@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Filtered Manager CSV follows the response contract and matches its rendered transaction-table slice.</description>
+   <name>TC_Csv_FilteredExportIntegrity</name>
+   <tag>csv,export,data,p0</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>8ae31ac1-19e2-413d-ae79-95ce614bcc7c</testCaseGuid>
+</TestCaseEntity>

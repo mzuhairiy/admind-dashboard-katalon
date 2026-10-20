@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Export API rejects unauthenticated and Viewer sessions while allowing Manager sessions.</description>
+   <name>TC_RBAC_ExportApiAuthorization</name>
+   <tag>rbac,api,export,p0</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f3d06c63-c48f-4b65-b17b-4aebb8f3a12d</testCaseGuid>
+</TestCaseEntity>

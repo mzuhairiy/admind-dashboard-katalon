@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity><description>Revenue 30D state, monthly chart values, and category drill-down match the deterministic oracle.</description><name>TC_Revenue_MonthlyDrilldown</name><tag>revenue,p1</tag><comment></comment><recordOption>OTHER</recordOption><testCaseGuid>171148d2-883c-4826-ad04-a872b764c657</testCaseGuid></TestCaseEntity>

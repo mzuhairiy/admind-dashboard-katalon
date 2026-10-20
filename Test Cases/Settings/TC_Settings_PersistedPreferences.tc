@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity><description>Manager timezone and currency settings persist and are restored after validation.</description><name>TC_Settings_PersistedPreferences</name><tag>settings,p1</tag><comment></comment><recordOption>OTHER</recordOption><testCaseGuid>7b8dd52e-7576-4772-94ba-af3077fe31e4</testCaseGuid></TestCaseEntity>

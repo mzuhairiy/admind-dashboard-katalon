@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>URL filter state persists through sign-in and refresh, safely falls back for invalid values, honors first repeated values, and localizes transaction dates without changing their UTC instants.</description>
+   <name>TC_Filter_UrlTimezoneContract</name>
+   <tag>filters,timezone,url,p0</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>c1d68043-303c-4dd2-b6f7-aa5c4a1c9929</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity><description>Refunded-only orders remain counted while paid revenue and revenue charts stay at zero.</description><name>TC_Dashboard_RefundedRevenueRegression</name><tag>dashboard,regression,p1</tag><comment></comment><recordOption>OTHER</recordOption><testCaseGuid>141379bd-d253-492d-96e0-d4668040816f</testCaseGuid></TestCaseEntity>

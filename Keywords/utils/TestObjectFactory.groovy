@@ -18,6 +18,10 @@ class TestObjectFactory {
         return css("[data-testid='transaction-row'][data-tx-id='${cssLiteral(transactionId)}']", "transaction_${transactionId}")
     }
 
+    static TestObject allByTestId(String testId, String name = null) {
+        return css("[data-testid='${cssLiteral(testId)}']", name ?: "testids_${testId}")
+    }
+
     static TestObject css(String selector, String name = 'dynamic_css') {
         TestObject object = new TestObject(name)
         object.addProperty('css', ConditionType.EQUALS, selector)
