@@ -1,6 +1,6 @@
 # Admin Dashboard Katalon Automation
 
-Katalon Studio 10.4.1 automation project for the read-only Admin Dashboard SUT. The suite targets business-risk areas: authentication/RBAC, deterministic analytics values, URL and timezone state, transaction data, CSV export, revenue, and settings.
+Katalon Studio 10.4.1 automation project for the read-only Admin Dashboard SUT. The suite targets business-risk areas: authentication/RBAC, deterministic analytics values, URL and timezone state, transaction data, CSV export, revenue, and settings using hybrid POM.
 
 ## Current implementation
 
