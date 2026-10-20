@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Manager can see Revenue navigation and open Revenue.</description>
+   <name>TC_RBAC_ManagerAccess</name>
+   <tag>rbac,manager</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>a55a5f61-5755-4881-b41f-332c3319449c</testCaseGuid>
+</TestCaseEntity>

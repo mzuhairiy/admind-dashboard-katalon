@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Authentication email input</description><name>SignIn_Email</name><tag></tag><elementGuidId>9bc1d33a-2a5a-437a-b0ce-8ba4fc4b4073</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='sign-in-email']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

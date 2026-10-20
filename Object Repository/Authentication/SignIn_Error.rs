@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Authentication error message</description><name>SignIn_Error</name><tag></tag><elementGuidId>16c4cbdd-1d6f-4882-9b12-c9fc40c0a3cb</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='sign-in-error']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

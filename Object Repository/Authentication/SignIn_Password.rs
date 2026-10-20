@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Authentication password input</description><name>SignIn_Password</name><tag></tag><elementGuidId>b1c6f632-4275-4969-b245-36e5a66cc84f</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='sign-in-password']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

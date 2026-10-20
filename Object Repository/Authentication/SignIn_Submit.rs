@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Authentication submit button</description><name>SignIn_Submit</name><tag></tag><elementGuidId>02b638b4-d93c-4d47-922d-168e9a68945a</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='sign-in-submit']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

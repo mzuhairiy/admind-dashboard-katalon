@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Authentication form</description><name>SignIn_Form</name><tag></tag><elementGuidId>246ec1bd-637b-44bd-9599-32a29dd248d2</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='sign-in-form']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

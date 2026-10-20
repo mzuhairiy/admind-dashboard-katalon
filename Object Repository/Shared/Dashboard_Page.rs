@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Dashboard page root</description><name>Dashboard_Page</name><tag></tag><elementGuidId>2fa3d7d5-00a8-4d2a-b986-2d0715a1e28d</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='dashboard-page']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

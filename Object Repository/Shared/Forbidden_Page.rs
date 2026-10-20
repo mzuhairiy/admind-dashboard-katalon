@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Forbidden page root</description><name>Forbidden_Page</name><tag></tag><elementGuidId>27d64470-4c8f-45de-b7a4-4fc6d8b45d5c</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='forbidden-page']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

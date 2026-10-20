@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>default</name>
+   <tag></tag>
+   <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>Base URL for the locally hosted SUT. Override in a non-committed profile for other environments.</description>
+      <initValue>'http://localhost:3000'</initValue>
+      <name>baseUrl</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Default explicit wait in seconds.</description>
+      <initValue>15</initValue>
+      <name>defaultTimeout</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Seeded Viewer email; credentials remain outside test scripts.</description>
+      <initValue>'viewer@example.com'</initValue>
+      <name>viewerEmail</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Seeded Viewer password. Replace with a local secure profile when required.</description>
+      <initValue>'Viewer123!'</initValue>
+      <name>viewerPassword</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Seeded Manager email; credentials remain outside test scripts.</description>
+      <initValue>'manager@example.com'</initValue>
+      <name>managerEmail</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Seeded Manager password. Replace with a local secure profile when required.</description>
+      <initValue>'Manager123!'</initValue>
+      <name>managerPassword</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

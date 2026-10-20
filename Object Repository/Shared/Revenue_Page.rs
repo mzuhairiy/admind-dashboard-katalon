@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity><description>Revenue page root</description><name>Revenue_Page</name><tag></tag><elementGuidId>5a2d7dea-0fca-4f94-bf1a-b02475d525b2</elementGuidId><selectorCollection><entry><key>CSS</key><value>[data-testid='revenue-page']</value></entry></selectorCollection><selectorMethod>CSS</selectorMethod><useRalativeImagePath>true</useRalativeImagePath></WebElementEntity>

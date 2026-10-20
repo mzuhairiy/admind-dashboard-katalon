@@ -1,0 +1,3 @@
+role,email,expectedRevenueNavigation,expectedExport,expectedRevenuePage
+VIEWER,viewer@example.com,false,false,forbidden
+MANAGER,manager@example.com,true,true,revenue

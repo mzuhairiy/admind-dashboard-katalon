@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Viewer can authenticate and lands on the dashboard.</description>
+   <name>TC_Authentication_ViewerLogin</name>
+   <tag>smoke,authentication</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>8e3e2a81-a926-48b2-aa2f-7d0b0b42ef25</testCaseGuid>
+</TestCaseEntity>
