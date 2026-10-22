@@ -6,6 +6,7 @@ import pages.LoginPage as LoginPage
 import pages.TransactionsPage as TransactionsPage
 import utils.TestObjectFactory as TestObjectFactory
 import utils.UrlState as UrlState
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 def waitForQuery = { String key, String expected ->
     long deadline = System.currentTimeMillis() + 15_000
@@ -32,7 +33,10 @@ def descending = { values -> values == values.sort(false).reverse() }
 
 try {
     WebUI.openBrowser(GlobalVariable.baseUrl)
+    WebUI.maximizeWindow()
     new LoginPage().open().signInAsViewer()
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Viewer login.'
 
     TransactionsPage page = new TransactionsPage()
     page.openWithQuery('preset=30d&tz=UTC&pageSize=20&sort=amount&order=asc')
@@ -41,7 +45,11 @@ try {
     assert rows().size() == 20 : 'The first page must show 20 rows.'
     assert ascending(amounts()) : 'Amount ascending must be sorted across the visible page.'
 
-    WebUI.click(TestObjectFactory.byTestId('sort-amount'))
+    def amountSort = TestObjectFactory.byTestId('sort-amount')
+    assert UrlState.firstQueryValue(WebUI.getAttribute(amountSort, 'href'), 'order') == 'desc' :
+        'The Amount sort link must target descending order.'
+    // ChromeDriver's native click reports success but leaves this Next.js Link on the same URL.
+    WebUI.jsClick(amountSort)
     assert waitForQuery('order', 'desc') : 'Clicking Amount must toggle to descending order.'
     page.waitUntilLoaded()
     assert WebUI.waitForElementAttributeValue(TestObjectFactory.byTestId('sort-amount'), 'aria-sort', 'descending', 15) :
@@ -50,7 +58,8 @@ try {
     assert descending(firstPageAmounts) : 'Amount descending must be sorted across the visible page.'
     String firstPageFirstId = page.firstTransaction().id
 
-    WebUI.click(TestObjectFactory.byTestId('pagination-next'))
+    // The React onClick handler responds to DOM click, while ChromeDriver's native click leaves the URL unchanged here.
+    WebUI.jsClick(TestObjectFactory.byTestId('pagination-next'))
     assert waitForQuery('page', '2') : 'Next must navigate to page 2.'
     assert WebUI.waitForElementNotPresent(TestObjectFactory.transactionRow(firstPageFirstId), 15) :
         'Page 2 must replace the page 1 transaction rows.'
@@ -60,16 +69,21 @@ try {
     assert descending(secondPageAmounts) && firstPageAmounts.last() >= secondPageAmounts.first() :
         'Page 2 must continue the descending sort after page 1.'
 
-    WebUI.click(TestObjectFactory.byTestId('page-size-select'))
-    WebUI.click(TestObjectFactory.byTestId('page-size-50'))
+    // The Radix select only opens and selects reliably with DOM clicks in this ChromeDriver run.
+    WebUI.jsClick(TestObjectFactory.byTestId('page-size-select'))
+    def pageSize50 = TestObjectFactory.byTestId('page-size-50')
+    assert WebUI.waitForElementVisible(pageSize50, 10) : 'Page-size option 50 must appear after opening the selector.'
+    WebUI.jsClick(pageSize50)
     assert waitForQuery('pageSize', '50') : 'Page-size control must update the URL to 50.'
     page.waitUntilLoaded()
     assert waitForRowCount(50) : 'The table must finish rendering the 50-row page.'
     assert UrlState.firstQueryValue(WebUI.getUrl(), 'page') == null : 'Changing page size must reset pagination.'
     assert rows().size() == 50 : 'The table must render 50 rows.'
 
-    WebUI.click(TestObjectFactory.byTestId('page-size-select'))
-    WebUI.click(TestObjectFactory.byTestId('page-size-100'))
+    WebUI.jsClick(TestObjectFactory.byTestId('page-size-select'))
+    def pageSize100 = TestObjectFactory.byTestId('page-size-100')
+    assert WebUI.waitForElementVisible(pageSize100, 10) : 'Page-size option 100 must appear after opening the selector.'
+    WebUI.jsClick(pageSize100)
     assert waitForQuery('pageSize', '100') : 'Page-size control must update the URL to 100.'
     page.waitUntilLoaded()
     assert waitForRowCount(100) : 'The table must finish rendering the 100-row page.'

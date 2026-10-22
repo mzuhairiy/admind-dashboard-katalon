@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity><description>Viewer sorting, page-size, pagination, oversized page clamping, and empty state.</description><name>TC_Transactions_SortPagination</name><tag>transactions,p1</tag><comment></comment><recordOption>OTHER</recordOption><testCaseGuid>1ab74ad6-0df2-4e2f-aa2f-f5395691378c</testCaseGuid></TestCaseEntity>
+<TestCaseEntity>
+   <description>Viewer sorting, page-size, pagination, oversized page clamping, and empty state.</description>
+   <name>TC_Transactions_SortPagination</name>
+   <tag>transactions,p1</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>1ab74ad6-0df2-4e2f-aa2f-f5395691378c</testCaseGuid>
+</TestCaseEntity>

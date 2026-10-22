@@ -26,7 +26,8 @@ try {
 
     DashboardPage dashboardPage = new DashboardPage()
 
-    WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 5)
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Viewer login.'
 
     dashboardPage.openWithQuery('preset=30d&tz=UTC')
 

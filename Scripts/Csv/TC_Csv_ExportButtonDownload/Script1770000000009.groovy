@@ -18,7 +18,8 @@ try {
 
     new LoginPage().open().signInAsManager()
 
-    WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 5)
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Manager login.'
 
     TransactionsPage transactionsPage = new TransactionsPage()
 

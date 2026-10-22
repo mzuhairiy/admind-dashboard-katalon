@@ -3,6 +3,7 @@ import internal.GlobalVariable as GlobalVariable
 import pages.LoginPage as LoginPage
 import pages.SettingsPage as SettingsPage
 import utils.TestObjectFactory as TestObjectFactory
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 SettingsPage settings = new SettingsPage()
 String originalTimezone = null
@@ -11,8 +12,11 @@ boolean browserOpened = false
 
 try {
     WebUI.openBrowser(GlobalVariable.baseUrl)
+    WebUI.maximizeWindow()
     browserOpened = true
     new LoginPage().open().signInAsManager()
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Manager login.'
 
     settings.open()
     originalTimezone = settings.selectedTimezone()

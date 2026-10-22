@@ -3,10 +3,14 @@ import internal.GlobalVariable as GlobalVariable
 import pages.DashboardPage as DashboardPage
 import pages.LoginPage as LoginPage
 import utils.TestObjectFactory as TestObjectFactory
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 try {
     WebUI.openBrowser(GlobalVariable.baseUrl)
+    WebUI.maximizeWindow()
     new LoginPage().open().signInAsViewer()
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Viewer login.'
     DashboardPage dashboard = new DashboardPage()
     dashboard.openWithQuery('preset=30d&tz=UTC&status=REFUNDED')
     dashboard.waitUntilLoaded()

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataFileEntity>
+   <description>CSV scenarios for data-driven dashboard URL filter validation.</description>
+   <name>filter_scenarios</name>
+   <tag>filters,ddt</tag>
+   <connectionProperties/>
+   <containsHeaders>true</containsHeaders>
+   <csvSeperator>comma</csvSeperator>
+   <dataFileGUID>44e160e7-6daa-4615-b22a-8a7678e53641</dataFileGUID>
+   <dataSourceUrl>Data Files/filter_scenarios.csv</dataSourceUrl>
+   <driver>CSV</driver>
+   <isInternalPath>true</isInternalPath>
+   <query></query>
+   <secureUserAccount>false</secureUserAccount>
+   <sheetName></sheetName>
+   <usingGlobalDBSetting>false</usingGlobalDBSetting>
+</DataFileEntity>

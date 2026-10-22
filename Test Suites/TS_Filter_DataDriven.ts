@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <description>Data-driven dashboard URL filter checks using all rows in filter_scenarios.csv.</description>
+   <name>TS_Filter_DataDriven</name>
+   <tag>filters,ddt,regression</tag>
+   <comment></comment>
+   <testSuiteGuid>84b084e1-633c-4aa1-9f26-d43a63a21a46</testSuiteGuid>
+   <testCaseLink>
+      <guid>15ce3e5f-d935-4db4-b3d1-f150e924ab12</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Filters/TC_Filter_UrlTimezoneDataDriven</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>0e7c41c9-2ff2-438f-a852-ec95a768c3fa</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value></value>
+         </iterationEntity>
+         <testDataId>Data Files/filter_scenarios</testDataId>
+      </testDataLink>
+      <variableLink>
+         <testDataLinkId>0e7c41c9-2ff2-438f-a852-ec95a768c3fa</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>scenario</value>
+         <variableId>04c5f2c8-f3fd-49b4-bf47-35b43578d244</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>0e7c41c9-2ff2-438f-a852-ec95a768c3fa</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>query</value>
+         <variableId>97260f9a-caf3-4cca-a961-9fbc9f974a37</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>0e7c41c9-2ff2-438f-a852-ec95a768c3fa</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>expectedPreset</value>
+         <variableId>1d06d5b8-bb96-40c4-b3df-df1ea7c1d0e0</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>0e7c41c9-2ff2-438f-a852-ec95a768c3fa</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>expectedTimezone</value>
+         <variableId>23a78c38-4f45-40e4-b7ac-0db3cdfef41f</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>0e7c41c9-2ff2-438f-a852-ec95a768c3fa</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>expectedStatus</value>
+         <variableId>86f659c9-0e81-43d5-b436-8e8f4e6b0e02</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>0e7c41c9-2ff2-438f-a852-ec95a768c3fa</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>expectedBehavior</value>
+         <variableId>370c60fa-c3e6-40d3-9f7c-43b5e7a531fe</variableId>
+      </variableLink>
+   </testCaseLink>
+</TestSuiteEntity>

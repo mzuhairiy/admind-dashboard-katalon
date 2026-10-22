@@ -1,4 +1,4 @@
-scenario,preset,timezone,status,expectedOutcome
-default-utc-30d,30d,UTC,,reference-kpis
-invalid-preset-preserves-timezone,not-a-preset,Asia/Tokyo,PAID,fallback-with-valid-filter
-repeated-query-first-value,30d,UTC,REFUNDED,first-value-wins
+scenario,query,expectedPreset,expectedTimezone,expectedStatus,expectedBehavior
+default-utc-30d,preset=30d&tz=UTC,30d,UTC,All statuses,reference-kpis
+invalid-preset-preserves-timezone,preset=not-a-preset&tz=Asia%2FTokyo&status=PAID,30d,Asia/Tokyo,Paid,preserve-valid-filter
+repeated-query-first-value,preset=30d&preset=90d&tz=UTC&tz=Asia%2FTokyo&status=REFUNDED&status=PAID,30d,UTC,Refunded,first-value-wins

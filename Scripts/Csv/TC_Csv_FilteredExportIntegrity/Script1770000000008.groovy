@@ -23,10 +23,12 @@ String query = 'preset=30d&tz=UTC&status=PAID&page=2&pageSize=20&sort=amount&ord
 
 try {
     WebUI.openBrowser(GlobalVariable.baseUrl)
+    WebUI.maximizeWindow()
 
     new LoginPage().open().signInAsManager()
 
-    WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 5)
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Manager login.'
 
     TransactionsPage transactionsPage = new TransactionsPage()
 

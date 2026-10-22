@@ -14,4 +14,8 @@ The suite requires the local Docker SUT and its deterministic 5,000-row seed. It
 
 ## Current status
 
-Implemented but not executed: basic auth and UI RBAC. Planned: API export statuses (401/403/200), numeric chart/KPI checks, filters, CSV parser checks, and data binding. No failing defects or exploratory findings are claimed.
+P0 and P1 regression suites have passed in Katalon Studio per user confirmation
+on 2026-10-20 and 2026-10-21 respectively. The first native CSV-driven filter
+suite is implemented and still needs execution in Katalon Studio. The fixed-seed
+dashboard oracle remains an explicit independent contract; CSV rows drive filter
+inputs and per-scenario expectations, not the oracle's source values.

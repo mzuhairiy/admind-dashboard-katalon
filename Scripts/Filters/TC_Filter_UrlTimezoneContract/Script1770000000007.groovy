@@ -5,12 +5,16 @@ import pages.TransactionsPage as TransactionsPage
 import utils.TestObjectFactory as TestObjectFactory
 import utils.UrlState as UrlState
 import internal.GlobalVariable as GlobalVariable
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 try {
     WebUI.openBrowser(GlobalVariable.baseUrl)
+    WebUI.maximizeWindow()
 
     // A deep link supplied before authentication must survive sign-in.
     new LoginPage().open('/dashboard?preset=30d&tz=UTC&status=PAID').signInAsViewer()
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Viewer login.'
     DashboardPage dashboardPage = new DashboardPage()
     dashboardPage.waitUntilAnalyticsLoaded()
     assert UrlState.firstQueryValue(WebUI.getUrl(), 'preset') == '30d' : 'The deep-link preset must survive sign-in.'

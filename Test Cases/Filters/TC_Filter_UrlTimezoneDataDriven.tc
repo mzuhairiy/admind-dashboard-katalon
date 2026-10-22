@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Run dashboard URL filter scenarios from the bound filter_scenarios CSV rows.</description>
+   <name>TC_Filter_UrlTimezoneDataDriven</name>
+   <tag>filters,timezone,url,ddt</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>db3639e4-1259-436a-a0c8-86f94395c816</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Scenario label for iteration reporting.</description>
+      <id>04c5f2c8-f3fd-49b4-bf47-35b43578d244</id>
+      <masked>false</masked>
+      <name>scenario</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Raw query string to apply to the dashboard URL.</description>
+      <id>97260f9a-caf3-4cca-a961-9fbc9f974a37</id>
+      <masked>false</masked>
+      <name>query</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Expected selected date preset after query resolution.</description>
+      <id>1d06d5b8-bb96-40c4-b3df-df1ea7c1d0e0</id>
+      <masked>false</masked>
+      <name>expectedPreset</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Expected first timezone value from the URL query.</description>
+      <id>23a78c38-4f45-40e4-b7ac-0db3cdfef41f</id>
+      <masked>false</masked>
+      <name>expectedTimezone</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Expected status filter label.</description>
+      <id>86f659c9-0e81-43d5-b436-8e8f4e6b0e02</id>
+      <masked>false</masked>
+      <name>expectedStatus</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Expected scenario-specific behavior contract.</description>
+      <id>370c60fa-c3e6-40d3-9f7c-43b5e7a531fe</id>
+      <masked>false</masked>
+      <name>expectedBehavior</name>
+   </variable>
+</TestCaseEntity>

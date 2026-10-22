@@ -1,9 +1,9 @@
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import components.NavigationComponent as NavigationComponent
-import pages.DashboardPage as DashboardPage
 import pages.LoginPage as LoginPage
 import pages.RevenuePage as RevenuePage
 import internal.GlobalVariable as GlobalVariable
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 try {
     WebUI.openBrowser(GlobalVariable.baseUrl)
@@ -12,7 +12,8 @@ try {
 
     new LoginPage().open().signInAsManager()
 
-    new DashboardPage().waitUntilLoaded()
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Manager login.'
 
 	assert new NavigationComponent().hasRevenueNavigation() : 'Manager should have Revenue navigation.'
 

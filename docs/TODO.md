@@ -39,26 +39,38 @@ relevant native suite configuration have been exercised successfully.
   table. A separate Chrome browser-download smoke test is now implemented for
   the Export button so UI wiring and file delivery are also covered. Both
   cases were included in the user-reported passing P0 suite.
-- [ ] Create the corresponding native Katalon suite/data binding for
-  `Data Files/filter_scenarios.csv`. Verify the binding in Katalon Studio;
-  do not treat the CSV file alone as configured data-driven execution.
+- [x] Create `TC_Filter_UrlTimezoneDataDriven`, the registered CSV test data,
+  and native suite binding for `Data Files/filter_scenarios.csv`.
+- [ ] Run `TS_Filter_DataDriven` in Katalon Studio; confirm all three CSV rows
+  execute as separate iterations and retain the execution report.
 - [x] `TS_P0_Regression` passed in Katalon Studio per the user's 2026-10-20
   confirmation. The passing report is not currently present in this workspace;
   attach or retain that report for the final handoff.
 
 ## P1 — after P0 is green
 
-- [ ] Transactions: sorting, pagination, page-size, out-of-range page clamping,
-  and empty state are implemented in `TC_Transactions_SortPagination`; run in Katalon.
-- [ ] Revenue: monthly chart, category drill-down, and explicit `preset=30d`
-  persistence are implemented in `TC_Revenue_MonthlyDrilldown`; run in Katalon.
-- [ ] Settings: timezone/currency save, success toast, persisted defaults, and
-  restoration are implemented in `TC_Settings_PersistedPreferences`; run in Katalon.
-- [ ] Regression: refunded-only zero revenue and nonzero orders are implemented
-  in `TC_Dashboard_RefundedRevenueRegression`; run in Katalon. Table/export
-  query parity is covered by P0 CSV-001. Chart tooltip formatting for USD/SGD
-  still needs a stable SUT test hook or a deliberately scoped tooltip assertion.
-- [ ] Run `TS_P1_Regression` in Katalon Studio and record actual results.
+- [x] Transactions: sorting, pagination, page-size, out-of-range page clamping,
+  and empty state are implemented in `TC_Transactions_SortPagination` and
+  passed in the user-reported `TS_P1_Regression` run on 2026-10-21.
+- [x] Revenue: monthly chart, category drill-down, and explicit `preset=30d`
+  persistence are implemented in `TC_Revenue_MonthlyDrilldown` and passed in
+  the user-reported `TS_P1_Regression` run on 2026-10-21.
+- [x] Settings: timezone/currency save, success toast, persisted defaults, and
+  restoration are implemented in `TC_Settings_PersistedPreferences` and passed
+  in the user-reported `TS_P1_Regression` run on 2026-10-21.
+- [x] Regression: refunded-only zero revenue and nonzero orders are implemented
+  in `TC_Dashboard_RefundedRevenueRegression` and passed in the user-reported
+  `TS_P1_Regression` run on 2026-10-21. Table/export query parity is covered by
+  P0 CSV-001. Chart tooltip formatting for USD/SGD remains pending a stable SUT
+  test hook or a deliberately scoped tooltip assertion.
+- [x] `TS_P1_Regression` passed in Katalon Studio per the user's 2026-10-21
+  confirmation. Retain the generated report for the final handoff.
+
+## Data-driven follow-up
+
+- [ ] Validate the native `TS_Filter_DataDriven` data binding in Katalon Studio.
+- [ ] Add data-driven cases only where multiple rows improve scenario coverage;
+  keep the independent fixed-seed oracle values explicit and reviewed.
 
 ## Execution hygiene
 

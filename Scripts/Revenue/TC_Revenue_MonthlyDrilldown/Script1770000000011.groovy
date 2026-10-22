@@ -4,10 +4,14 @@ import pages.LoginPage as LoginPage
 import pages.RevenuePage as RevenuePage
 import utils.TestObjectFactory as TestObjectFactory
 import utils.UrlState as UrlState
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 try {
     WebUI.openBrowser(GlobalVariable.baseUrl)
+    WebUI.maximizeWindow()
     new LoginPage().open().signInAsManager()
+    assert WebUI.waitForElementVisible(findTestObject('Shared/Dashboard_Page'), 10) :
+        'Dashboard must be visible after successful Manager login.'
 
     RevenuePage page = new RevenuePage()
     WebUI.navigateToUrl("${GlobalVariable.baseUrl}/revenue?tz=UTC")
