@@ -41,11 +41,11 @@ relevant native suite configuration have been exercised successfully.
   cases were included in the user-reported passing P0 suite.
 - [x] Create `TC_Filter_UrlTimezoneDataDriven`, the registered CSV test data,
   and native suite binding for `Data Files/filter_scenarios.csv`.
-- [ ] Run `TS_Filter_DataDriven` in Katalon Studio; confirm all three CSV rows
-  execute as separate iterations and retain the execution report.
-- [x] `TS_P0_Regression` passed in Katalon Studio per the user's 2026-10-20
-  confirmation. The passing report is not currently present in this workspace;
-  attach or retain that report for the final handoff.
+- [x] `TS_Filter_DataDriven` passed in Katalon Studio per the user's
+  2026-10-22 confirmation, after correcting the CSV data-file metadata.
+- [x] `TS_P0_Regression` passed in Katalon Studio per the user's 2026-10-22
+  confirmation after the recent UI test updates. Retain its generated report
+  for the final handoff; it is not currently present in this workspace.
 
 ## P1 — after P0 is green
 
@@ -63,12 +63,14 @@ relevant native suite configuration have been exercised successfully.
   `TS_P1_Regression` run on 2026-10-21. Table/export query parity is covered by
   P0 CSV-001. Chart tooltip formatting for USD/SGD remains pending a stable SUT
   test hook or a deliberately scoped tooltip assertion.
-- [x] `TS_P1_Regression` passed in Katalon Studio per the user's 2026-10-21
-  confirmation. Retain the generated report for the final handoff.
+- [x] `TS_P1_Regression` passed in Katalon Studio per the user's 2026-10-22
+  confirmation after the recent UI test updates. Retain its generated report
+  for the final handoff; it is not currently present in this workspace.
 
 ## Data-driven follow-up
 
-- [ ] Validate the native `TS_Filter_DataDriven` data binding in Katalon Studio.
+- [x] Validate the native `TS_Filter_DataDriven` data binding in Katalon Studio;
+  the user reports the suite passed on 2026-10-22.
 - [ ] Add data-driven cases only where multiple rows improve scenario coverage;
   keep the independent fixed-seed oracle values explicit and reviewed.
 
