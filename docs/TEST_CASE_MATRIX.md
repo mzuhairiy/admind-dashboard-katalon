@@ -2,6 +2,7 @@
 
 | ID | Feature | Scenario | Priority | Expected result | Status |
 | --- | --- | --- | --- | --- | --- |
+| ENV-001 | Environment | Health endpoint and deterministic seed preflight | P0 | `/api/health` = 200; UTC 30D KPIs match the fixed-seed oracle | Passed, user-reported 2026-10-23 |
 | AUTH-001 | Authentication | Viewer signs in | P0 | Dashboard loads | Passed, user-reported |
 | AUTH-002 | Authentication | Bad credentials | P0 | Inline error; no session | Passed, user-reported |
 | RBAC-001 | RBAC | Viewer visibility and Revenue deep link | P0 | No Revenue/CSV; `/forbidden` | Passed, user-reported |
@@ -15,3 +16,4 @@
 | REV-001 | Revenue | UTC 30D month and category drill-down | P1 | Independent totals and persistent 30D selection | Passed, user-reported 2026-10-22 |
 | SETTINGS-001 | Settings | Save timezone/currency and restore originals | P1 | Toast, persisted preferences, updated default timezone | Passed, user-reported 2026-10-22 |
 | DATA-002 | Dashboard | Refunded-only revenue regression | P1 | Zero paid revenue, nonzero orders, zero revenue charts | Passed, user-reported 2026-10-22 |
+| DATA-003 | Dashboard | Monetary chart tooltip currency formatting | P1 | IDR/USD/SGD formatting changes while raw values remain invariant | Passed, user-reported 2026-10-26 |

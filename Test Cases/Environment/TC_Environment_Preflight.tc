@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Verify SUT health and deterministic UTC dashboard seed before regression coverage.</description>
+   <name>TC_Environment_Preflight</name>
+   <tag>environment,preflight,smoke</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>26e83210-f6b4-4c1c-a0ba-bfb64ac164a1</testCaseGuid>
+</TestCaseEntity>

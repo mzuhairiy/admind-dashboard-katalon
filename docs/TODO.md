@@ -21,6 +21,13 @@ relevant native suite configuration have been exercised successfully.
 
 ## P0 — implement next
 
+- [x] Add `TC_Environment_Preflight` as the first case in both P0 and P1
+  regression suites. It checks `/api/health` returns 200 and verifies the UTC
+  30-day fixed-seed KPIs before the rest of either suite runs.
+- [x] `TS_P0_Regression` and `TS_P1_Regression` passed in Katalon Studio per
+  the user's 2026-10-23 confirmation with the new preflight included. Retain
+  their generated reports for the final handoff; report artifacts are not
+  currently present in this workspace.
 - [x] **RBAC-003: CSV API authorization.** Implemented as an isolated API test case for
   `GET /api/export/csv`: unauthenticated = 401, Viewer = 403, Manager = 200.
   It authenticates using the Auth.js CSRF/credentials flow and was included in
@@ -61,11 +68,19 @@ relevant native suite configuration have been exercised successfully.
 - [x] Regression: refunded-only zero revenue and nonzero orders are implemented
   in `TC_Dashboard_RefundedRevenueRegression` and passed in the user-reported
   `TS_P1_Regression` run on 2026-10-21. Table/export query parity is covered by
-  P0 CSV-001. Chart tooltip formatting for USD/SGD remains pending a stable SUT
-  test hook or a deliberately scoped tooltip assertion.
-- [x] `TS_P1_Regression` passed in Katalon Studio per the user's 2026-10-22
-  confirmation after the recent UI test updates. Retain its generated report
-  for the final handoff; it is not currently present in this workspace.
+  P0 CSV-001.
+- [x] Add `TC_Dashboard_CurrencyTooltipFormatting` using the SUT's stable
+  `chart-tooltip` / `chart-tooltip-value` hooks. It checks revenue trend, top
+  category, and Revenue breakdown tooltips under IDR, USD, and SGD, and confirms
+  raw amounts are unchanged while display formatting follows the currency.
+- [x] `TC_Dashboard_CurrencyTooltipFormatting` passed as part of
+  `TS_P1_Regression` in Katalon Studio per the user's 2026-10-26 confirmation.
+  Retain the generated report for handoff; it is not currently present in this
+  workspace.
+- [x] `TS_P1_Regression` passed in Katalon Studio per the user's 2026-10-26
+  confirmation, including the monetary tooltip currency test. Retain its
+  generated report for the final handoff; it is not currently present in this
+  workspace.
 
 ## Data-driven follow-up
 
@@ -76,8 +91,9 @@ relevant native suite configuration have been exercised successfully.
 
 ## Execution hygiene
 
-- [ ] Confirm `GET /api/health` is 200 and the app uses the documented fixed
-  seed before each full run.
+- [x] Automate the `/api/health` and fixed-seed preflight as the first case in
+  each P0/P1 full regression suite; both updated suites passed in Katalon Studio
+  per the user's 2026-10-23 confirmation.
 - [ ] Keep credentials and URLs in execution profiles; never commit a local
   profile or generated `Reports`, `Libs`, `bin`, or downloads.
 - [ ] Record each executed suite's environment, date, and outcome in the QA

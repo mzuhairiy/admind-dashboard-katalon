@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Monetary chart tooltips display the selected currency without changing raw amounts.</description>
+   <name>TC_Dashboard_CurrencyTooltipFormatting</name>
+   <tag>dashboard,currency,tooltip,p1</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>11ba47fd-822e-4488-86f4-02cc3f7fdd24</testCaseGuid>
+</TestCaseEntity>

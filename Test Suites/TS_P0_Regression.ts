@@ -5,6 +5,7 @@
    <tag>p0,regression</tag>
    <comment></comment>
    <testSuiteGuid>be29b1fc-e5eb-4101-9c67-9dc770252778</testSuiteGuid>
+   <testCaseLink><guid>9c9c0f7f-776f-4b0c-b1de-1bb019db3d94</guid><isReuseDriver>false</isReuseDriver><isRun>true</isRun><testCaseId>Test Cases/Environment/TC_Environment_Preflight</testCaseId></testCaseLink>
    <testCaseLink><guid>b6987bb9-930d-455b-aeba-d1be23dfe773</guid><isReuseDriver>false</isReuseDriver><isRun>true</isRun><testCaseId>Test Cases/Authentication/TC_Authentication_ViewerLogin</testCaseId></testCaseLink>
    <testCaseLink><guid>9c3548d8-af2b-4d80-99d7-9426042e117c</guid><isReuseDriver>false</isReuseDriver><isRun>true</isRun><testCaseId>Test Cases/Authentication/TC_Authentication_InvalidCredentials</testCaseId></testCaseLink>
    <testCaseLink><guid>53d90abe-2721-4498-87e2-b22074c98c78</guid><isReuseDriver>false</isReuseDriver><isRun>true</isRun><testCaseId>Test Cases/RBAC/TC_RBAC_ViewerRestrictions</testCaseId></testCaseLink>

@@ -14,8 +14,10 @@ The suite requires the local Docker SUT and its deterministic 5,000-row seed. It
 
 ## Current status
 
-P0 and P1 regression suites have passed in Katalon Studio per user confirmation
-on 2026-10-20 and 2026-10-21 respectively. The first native CSV-driven filter
-suite is implemented and still needs execution in Katalon Studio. The fixed-seed
-dashboard oracle remains an explicit independent contract; CSV rows drive filter
-inputs and per-scenario expectations, not the oracle's source values.
+P0, P1, and the native CSV-driven filter suite passed in Katalon Studio per user
+confirmation. Both regression suites were rerun successfully on 2026-10-23 with
+`TC_Environment_Preflight` first, checking health and the independent fixed-seed
+dashboard oracle. `TC_Dashboard_CurrencyTooltipFormatting` subsequently passed
+as part of `TS_P1_Regression` on 2026-10-26, covering IDR/USD/SGD monetary
+tooltips through the SUT's stable raw-value and currency hooks. CSV rows drive
+filter inputs and per-scenario expectations, not the oracle's source values.

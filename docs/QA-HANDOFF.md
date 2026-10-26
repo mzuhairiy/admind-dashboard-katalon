@@ -117,6 +117,13 @@ absent from DOM for Viewer) `sidebar-settings` · `user-menu-trigger` `menu-sett
 `chart-top-categories` + `chart-top-categories-bar` (`data-category`, `data-value`) ·
 `chart-order-status` + `chart-order-status-slice` (`data-status`, `data-value`)
 
+Monetary chart tooltips appear on hover/focus as `chart-tooltip` with
+`data-currency="IDR|USD|SGD"`. Each monetary value uses
+`chart-tooltip-value` with `data-raw-value` (unformatted amount) and
+`data-currency`; its text is formatted for display. These hooks are used by the
+revenue trend and top-category charts. The order-status chart is not monetary
+and does not expose these tooltip hooks.
+
 ### Transactions
 
 `transactions-page` `transactions-table` `transaction-row` (+`data-tx-id`) ·
@@ -131,6 +138,10 @@ cell has `data-value`) · `sort-{column}` · `pagination` `pagination-prev`
 `data-category`, `data-value`) · `revenue-detail-table` `revenue-month-row`
 (`data-month`) `revenue-month-orders` `revenue-month-total` (both `data-value`) ·
 `revenue-drilldown-{yyyy-MM}` → expands `revenue-category-row` + `revenue-category-value`
+
+The Revenue breakdown chart also uses `chart-tooltip` and one or more
+`chart-tooltip-value` elements per tooltip, with the same currency/raw-value
+contract described above.
 
 ### Settings
 
