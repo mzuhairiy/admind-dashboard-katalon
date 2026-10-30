@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Validate category/status filters across dashboard, transactions, and CSV export. Direct runs use the first CSV scenario; run TS_Filter_DataDriven for all rows.</description>
+   <name>TC_Filter_CategoryStatusDataDriven</name>
+   <tag>filters,category,status,ddt</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>cc92df16-0dc7-447d-a20d-1671ecc8d172</testCaseGuid>
+   <variable>
+      <defaultValue>'single-electronics-paid'</defaultValue>
+      <description>Scenario label for iteration reporting.</description>
+      <id>ca8f293c-fac1-4df1-a3a3-1ad0c70683ba</id>
+      <masked>false</masked>
+      <name>scenario</name>
+   </variable>
+   <variable>
+      <defaultValue>'preset=30d&amp;tz=UTC&amp;category=electronics&amp;status=PAID'</defaultValue>
+      <description>Query string containing category/status filters.</description>
+      <id>c2fca7ec-b023-4b4f-9f0a-4a2747934cee</id>
+      <masked>false</masked>
+      <name>query</name>
+   </variable>
+   <variable>
+      <defaultValue>'electronics'</defaultValue>
+      <description>Expected category slugs separated by a pipe.</description>
+      <id>bf3a8696-fc22-4202-94d4-5ac280a47975</id>
+      <masked>false</masked>
+      <name>expectedCategorySlugs</name>
+   </variable>
+   <variable>
+      <defaultValue>'PAID'</defaultValue>
+      <description>Expected transaction statuses separated by a pipe.</description>
+      <id>4ddaddd9-d7b9-4b9c-b442-175d52b7c9d5</id>
+      <masked>false</masked>
+      <name>expectedStatuses</name>
+   </variable>
+   <variable>
+      <defaultValue>'matching-rows'</defaultValue>
+      <description>Expected behavior, including invalid status fallback to all statuses.</description>
+      <id>1c410108-8d69-41a2-a0bc-a991fc4788b4</id>
+      <masked>false</masked>
+      <name>expectedBehavior</name>
+   </variable>
+</TestCaseEntity>

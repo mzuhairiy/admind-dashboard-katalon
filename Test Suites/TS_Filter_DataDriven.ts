@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
-   <description>Data-driven dashboard URL filter checks using all rows in filter_scenarios.csv.</description>
+   <description>Data-driven dashboard URL and category/status filter checks.</description>
    <name>TS_Filter_DataDriven</name>
    <tag>filters,ddt,regression</tag>
    <comment></comment>
@@ -54,6 +54,51 @@
          <type>DATA_COLUMN</type>
          <value>expectedBehavior</value>
          <variableId>370c60fa-c3e6-40d3-9f7c-43b5e7a531fe</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>7bd36983-1940-4e51-b2b6-831c92dbd47b</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Filters/TC_Filter_CategoryStatusDataDriven</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>4bdc4154-3d86-4bf3-b159-bf3cb5f33e7e</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value></value>
+         </iterationEntity>
+         <testDataId>Data Files/category_status_scenarios</testDataId>
+      </testDataLink>
+      <variableLink>
+         <testDataLinkId>4bdc4154-3d86-4bf3-b159-bf3cb5f33e7e</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>scenario</value>
+         <variableId>ca8f293c-fac1-4df1-a3a3-1ad0c70683ba</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>4bdc4154-3d86-4bf3-b159-bf3cb5f33e7e</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>query</value>
+         <variableId>c2fca7ec-b023-4b4f-9f0a-4a2747934cee</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>4bdc4154-3d86-4bf3-b159-bf3cb5f33e7e</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>expectedCategorySlugs</value>
+         <variableId>bf3a8696-fc22-4202-94d4-5ac280a47975</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>4bdc4154-3d86-4bf3-b159-bf3cb5f33e7e</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>expectedStatuses</value>
+         <variableId>4ddaddd9-d7b9-4b9c-b442-175d52b7c9d5</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>4bdc4154-3d86-4bf3-b159-bf3cb5f33e7e</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>expectedBehavior</value>
+         <variableId>1c410108-8d69-41a2-a0bc-a991fc4788b4</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

@@ -1,0 +1,8 @@
+scenario,query,expectedCategorySlugs,expectedStatuses,expectedBehavior
+single-electronics-paid,preset=30d&tz=UTC&category=electronics&status=PAID,electronics,PAID,matching-rows
+multi-category-paid-refunded,preset=30d&tz=UTC&category=electronics%2Cfashion&status=PAID%2CREFUNDED,electronics|fashion,PAID|REFUNDED,matching-rows
+unknown-category-empty,preset=30d&tz=UTC&category=not-a-real-category&status=PAID,not-a-real-category,PAID,empty-result
+repeated-status-first-value,preset=30d&tz=UTC&status=REFUNDED&status=PAID,*,REFUNDED,matching-rows
+repeated-category-first-value,preset=30d&tz=UTC&category=electronics&category=fashion&status=PAID,electronics,PAID,matching-rows
+invalid-status-entry-dropped,preset=30d&tz=UTC&status=PAID%2CBOGUS,*,PAID,matching-rows
+invalid-status-only-falls-back-to-all,preset=30d&tz=UTC&status=BOGUS,*,*,invalid-status-fallback-all

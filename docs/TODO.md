@@ -15,9 +15,9 @@ relevant native suite configuration have been exercised successfully.
   P0 suite.
 - [x] Correct `NavigationComponent.hasRevenueNavigation()` so it returns the
   presence result rather than its inverse.
-- [ ] Re-run `TS_RBAC` in Katalon Studio after the helper correction and retain
-  the execution result. This is a validation task, not a claim that the suite
-  has already passed.
+- [x] Re-run `TS_RBAC` in Katalon Studio after the helper correction; the user
+  reports the suite passed on 2026-10-27. The 2026-10-28 rerun passed 3/3;
+  its HTML report is recorded in `KATALON_EXECUTION_LOG.md`.
 
 ## P0 — implement next
 
@@ -25,9 +25,9 @@ relevant native suite configuration have been exercised successfully.
   regression suites. It checks `/api/health` returns 200 and verifies the UTC
   30-day fixed-seed KPIs before the rest of either suite runs.
 - [x] `TS_P0_Regression` and `TS_P1_Regression` passed in Katalon Studio per
-  the user's 2026-10-23 confirmation with the new preflight included. Retain
-  their generated reports for the final handoff; report artifacts are not
-  currently present in this workspace.
+  the user's 2026-10-23 confirmation with the new preflight included. Both
+  suites also passed on 2026-10-28; report links are recorded in
+  `KATALON_EXECUTION_LOG.md`.
 - [x] **RBAC-003: CSV API authorization.** Implemented as an isolated API test case for
   `GET /api/export/csv`: unauthenticated = 401, Viewer = 403, Manager = 200.
   It authenticates using the Auth.js CSRF/credentials flow and was included in
@@ -51,8 +51,8 @@ relevant native suite configuration have been exercised successfully.
 - [x] `TS_Filter_DataDriven` passed in Katalon Studio per the user's
   2026-10-22 confirmation, after correcting the CSV data-file metadata.
 - [x] `TS_P0_Regression` passed in Katalon Studio per the user's 2026-10-22
-  confirmation after the recent UI test updates. Retain its generated report
-  for the final handoff; it is not currently present in this workspace.
+  confirmation after the recent UI test updates. Its 2026-10-28 report is
+  available in `Reports/` and linked from `KATALON_EXECUTION_LOG.md`.
 
 ## P1 — after P0 is green
 
@@ -75,26 +75,44 @@ relevant native suite configuration have been exercised successfully.
   raw amounts are unchanged while display formatting follows the currency.
 - [x] `TC_Dashboard_CurrencyTooltipFormatting` passed as part of
   `TS_P1_Regression` in Katalon Studio per the user's 2026-10-26 confirmation.
-  Retain the generated report for handoff; it is not currently present in this
-  workspace.
+  Follow-up hover failures exposed an outdated SUT image that lacked
+  `chart-tooltip-value`. The app image was rebuilt on 2026-10-28, then the P1
+  suite passed 6/6; its report is linked from `KATALON_EXECUTION_LOG.md`.
 - [x] `TS_P1_Regression` passed in Katalon Studio per the user's 2026-10-26
-  confirmation, including the monetary tooltip currency test. Retain its
-  generated report for the final handoff; it is not currently present in this
-  workspace.
+  confirmation, including the monetary tooltip currency test. The 2026-10-28
+  report confirms the rerun after rebuilding the SUT also passed.
 
 ## Data-driven follow-up
 
 - [x] Validate the native `TS_Filter_DataDriven` data binding in Katalon Studio;
   the user reports the suite passed on 2026-10-22.
-- [ ] Add data-driven cases only where multiple rows improve scenario coverage;
-  keep the independent fixed-seed oracle values explicit and reviewed.
+- [x] Add `TC_Filter_CategoryStatusDataDriven` for single/multiple category and
+  status filters plus unknown-category empty results. Its original three-row
+  native data binding and dashboard/chart/table/CSV parity passed in Katalon
+  Studio per the user's 2026-10-26 confirmation.
+- [x] Extend the same DDT with repeated category/status keys (first value wins),
+  mixed valid/invalid status values (invalid values are dropped), and invalid-
+  only status fallback to all statuses. The seven-row matrix and assertions are
+  implemented; the user reports the expanded run passed in Katalon Studio on
+  2026-10-27. After rebuilding the SUT on 2026-10-28, the case exposed three
+  stale test assumptions: dashboard empty results omit KPI cards, zero paid
+  revenue may omit category bars, and invalid status tokens remain in the raw
+  URL while being dropped from the effective filter. Assertions now follow the
+  documented SUT contract. The 2026-10-28 report confirms the updated
+  seven-row matrix passed within the 10/10 DDT suite. Fixed-seed oracle values
+  must remain explicit and reviewed when adding future scenarios.
 
 ## Execution hygiene
 
 - [x] Automate the `/api/health` and fixed-seed preflight as the first case in
   each P0/P1 full regression suite; both updated suites passed in Katalon Studio
   per the user's 2026-10-23 confirmation.
-- [ ] Keep credentials and URLs in execution profiles; never commit a local
-  profile or generated `Reports`, `Libs`, `bin`, or downloads.
-- [ ] Record each executed suite's environment, date, and outcome in the QA
-  handoff or a run report only after it genuinely runs.
+- [x] Keep credentials and URLs in execution profiles; keep local profile
+  overrides and generated `Reports`, `Downloads`, `Libs`, and `bin` out of Git.
+  Verified against `Profiles/default.glbl`, `.gitignore`, and tracked profile
+  files. Documented the local override workflow in `EXECUTION_HYGIENE.md`.
+- [x] Record environment metadata and report artifacts for the 2026-10-28
+  suite runs. Katalon version, browser, OS, report links, and profile `default`
+  are verified from the retained execution properties and reports in
+  `KATALON_EXECUTION_LOG.md`. Older historical runs lack those artifacts, so
+  their missing metadata remains explicitly undocumented rather than guessed.

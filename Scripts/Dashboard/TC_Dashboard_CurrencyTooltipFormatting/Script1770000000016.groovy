@@ -1,5 +1,8 @@
 import com.kms.katalon.core.testobject.TestObject
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.interactions.Actions
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.webui.driver.DriverFactory
 import internal.GlobalVariable as GlobalVariable
 import pages.DashboardPage as DashboardPage
 import pages.LoginPage as LoginPage
@@ -12,16 +15,61 @@ SettingsPage settings = new SettingsPage()
 String originalCurrency = null
 boolean browserOpened = false
 
-def captureTooltipValue = { String pointTestId, String currency ->
-    TestObject point = TestObjectFactory.byTestId(pointTestId)
-    assert WebUI.waitForElementVisible(point, 15) : "Chart point '${pointTestId}' must be visible."
-    String rawValue = WebUI.getAttribute(point, 'data-value')
-    assert rawValue != null : "Chart point '${pointTestId}' must expose its raw data-value."
+def captureTooltipValue = { String chartTestId, String pointTestId, String currency ->
+    TestObject points = TestObjectFactory.allByTestId(pointTestId)
+    assert WebUI.waitForElementVisible(points, 15) : "Chart point '${pointTestId}' must be visible."
+    TestObject chart = TestObjectFactory.byTestId(chartTestId)
+    assert WebUI.waitForElementVisible(chart, 10) : "Chart '${chartTestId}' must be visible before hovering."
+    WebUI.scrollToElement(chart, 5)
 
-    WebUI.mouseOver(point)
+    WebElement chartElement = WebUI.findWebElement(chart, 10)
+    List<WebElement> visiblePoints = WebUI.findWebElements(points, 10).findAll { WebElement candidate ->
+        candidate.isDisplayed() && candidate.size.width > 0 && candidate.size.height > 0 &&
+            candidate.getAttribute('data-value') != null
+    }
+    assert !visiblePoints.isEmpty() : "Chart '${chartTestId}' has no visible, hoverable '${pointTestId}' points."
+
+    // Hover an actual rendered SVG point. Calculating an offset from the outer
+    // chart wrapper can miss the Recharts SVG surface in headless Chrome.
+    WebElement pointElement = visiblePoints.min { WebElement candidate ->
+        Math.abs(candidate.location.x - chartElement.location.x - chartElement.size.width.intdiv(2)) +
+            Math.abs(candidate.location.y - chartElement.location.y - chartElement.size.height.intdiv(2))
+    }
+    String rawValue = pointElement.getAttribute('data-value')
+    // Move across the chart before targeting the SVG point so the browser emits
+    // a fresh mousemove even if the pointer was already near this chart.
+    new Actions(DriverFactory.getWebDriver())
+        .moveToElement(chartElement)
+        .moveToElement(pointElement)
+        .perform()
 
     TestObject tooltip = TestObjectFactory.byTestId('chart-tooltip')
-    assert WebUI.waitForElementVisible(tooltip, 10) : "Tooltip for '${pointTestId}' must appear on hover."
+    boolean tooltipVisible = WebUI.waitForElementVisible(tooltip, 10)
+    String hoverDiagnostics = ''
+    if (!tooltipVisible) {
+        try {
+            hoverDiagnostics = WebUI.executeJavaScript('''
+                const point = arguments[0];
+                const chart = arguments[1];
+                const rect = point.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                const hit = document.elementFromPoint(x, y);
+                return JSON.stringify({
+                    viewport: [window.innerWidth, window.innerHeight],
+                    point: [rect.left, rect.top, rect.width, rect.height],
+                    chart: (() => { const r = chart.getBoundingClientRect(); return [r.left, r.top, r.width, r.height]; })(),
+                    hit: hit ? { tag: hit.tagName, testId: hit.getAttribute('data-testid'), className: String(hit.getAttribute('class')) } : null,
+                    pointHovered: point.matches(':hover'),
+                    chartHovered: chart.matches(':hover')
+                });
+            ''', [pointElement, chartElement]) as String
+        } catch (Exception diagnosticError) {
+            hoverDiagnostics = "unavailable (${diagnosticError.class.simpleName})"
+        }
+    }
+    assert tooltipVisible :
+        "Tooltip for '${pointTestId}' did not appear after native hover; browser hit-test=${hoverDiagnostics}; URL=${WebUI.getUrl()}."
     assert WebUI.getAttribute(tooltip, 'data-currency') == currency :
         "Tooltip container must identify selected currency '${currency}'."
 
@@ -72,13 +120,15 @@ try {
         WebUI.navigateToUrl("${GlobalVariable.baseUrl}/dashboard?preset=30d&tz=UTC")
         new DashboardPage().waitUntilAnalyticsLoaded()
         Map chartValues = [
-            revenueTrend: captureTooltipValue('chart-revenue-trend-point', currency),
-            topCategory: captureTooltipValue('chart-top-categories-bar', currency)
+            revenueTrend: captureTooltipValue('chart-revenue-trend', 'chart-revenue-trend-point', currency),
+            topCategory: captureTooltipValue('chart-top-categories', 'chart-top-categories-bar', currency)
         ]
 
         WebUI.navigateToUrl("${GlobalVariable.baseUrl}/revenue?preset=30d&tz=UTC")
         new RevenuePage().waitUntilLoaded()
-        chartValues.revenueBreakdown = captureTooltipValue('revenue-breakdown-segment', currency)
+        chartValues.revenueBreakdown = captureTooltipValue(
+            'revenue-breakdown-chart', 'revenue-breakdown-segment', currency
+        )
         resultsByCurrency[currency] = chartValues
     }
 
